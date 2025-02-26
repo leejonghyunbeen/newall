@@ -1,0 +1,119 @@
+
+/* project */
+main .project {
+    background: #000;
+}
+
+main .project .project_wrap {   
+}
+
+main .project .project_wrap .project_box {
+    padding-top: 150px; padding-left: 100px; padding-bottom: 100px;
+    padding-right: 100px;
+    cursor: pointer;
+    transition: 1s;
+    width: 100%; height: 100vh;
+    position: sticky; left: 0; top: 0;
+}
+
+main .project .project_wrap .project_box h2 img{
+    width: 30%
+}
+
+main .project .project_wrap .project_box .project_all {
+display: flex; align-items: center;
+justify-content: center;
+}
+main .project .project_wrap .project_box .project_text {
+    color: #fff; line-height: 70px; font-weight: 600; font-size: 1.25rem;
+}
+main .project .project_wrap .project_box .project_text span{
+    color: #fff;font-weight: 600; padding-left: 30px;
+    font-size: 1.1rem;
+}
+.project_left {
+    transform: translateX(20%);
+}
+main .project .project_wrap .project_box h2{
+    margin-bottom: 10%;
+}
+main .project .project_wrap .project_box .project_skill {
+    margin-top: 20px;
+}
+main .project .project_wrap .project_box .project_skill span {
+    color: #737272;
+} 
+main .project .project_wrap .project_box .project_figma {
+    margin-top: 30px;
+}
+main .project .project_wrap .project_box .project_figma a {
+    border: 1px solid #fff;
+    border-bottom: 3px solid #fff;
+    border-right: 3px solid #fff;
+    padding: 3px;
+    font-weight: 700;
+    color: #fff;
+    margin-right: 20px;
+    transition: 0.5s;
+}
+main .project .project_wrap .project_box .project_figma a:hover{
+    color: #000;
+    background: #fff;
+    border: 1px solid #a5a5a5;
+    border-bottom: 3px solid #a5a5a5;
+    transition: 0.5s;
+    font-size: 1.1rem;
+    font-weight: 700;
+    transform: scale(1.2);
+}
+
+main .project .project_wrap .project_box .project_right {
+    width:40% ;
+}
+
+main .project .project_wrap .project_box .project_right .project_site{
+    padding-right: 100px;
+}
+main .project .project_wrap .project_box .project_right .project_site img{
+    width: 70%; transform: translateX(40%);
+    transition: opacity 1s ease-in-out;
+}
+
+.project_wavve {z-index: 499;}
+
+.project_calvin {
+    z-index: 500;
+    background: #ffff;
+}
+
+.project_calvin div,.project_calvin a ,.project_calvin span {
+    color: #000 !important; 
+}
+
+.project_calvin a{
+    color: #000;
+}
+.calvin_figma a {
+    border: 1px solid #000 !important;
+}
+.calvin_figma a:hover{
+    background: #000 !important;
+    color: #fff !important;
+}
+
+.korean {
+    background: #000 ; 
+    z-index: 501;
+}
+.korean_left {
+    margin-right: 130px;
+}
+
+
+.app {
+    background: #203429;
+    z-index: 502;
+}
+.app_all {
+    margin-top: 100px;
+}
