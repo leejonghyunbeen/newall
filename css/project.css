@@ -90,10 +90,6 @@
     opacity: 1;
 }
 
-.swiper-wrapper {
-    cursor: pointer !important;
-}
-
 .change_link2{
     background-color: #000;
     display: flex;

@@ -125,39 +125,26 @@ document.addEventListener("DOMContentLoaded", function () {
 // }
 
 // 프로잭트
+document.addEventListener("DOMContentLoaded", function () {
+    // 모든 change_link2 클래스를 가진 요소를 선택
+    const links = document.querySelectorAll(".change_link2");
 
+    // 각 버튼에 고유한 링크 지정
+    const urls = [
+        "https://www.figma.com/proto/awSRDNw2wSh28Qm1FjveeA/1%EC%A1%B0_%EB%B9%84%EB%A0%8C%EC%8A%A4_%EC%9A%A9%EA%B8%B0%2C%ED%98%84%EB%B9%88%2C%EC%9D%80%EC%A7%80?page-id=0%3A1&node-id=1-70&viewport=2240%2C315%2C0.08&t=hzZpPaDLB5AOtN3L-1&scaling=contain",
+        "https://calvinkleinkorea.netlify.app/",
+        "https://your-third-project-link.com",
+        "https://koreacinema.netlify.app/#"
+    ];
 
-// const img_change = document.querySelectorAll('.project_left2 img');
-// const change_img = [
-//     './img/FireShot Capture 001 - 캘빈클라인 공식 온라인 스토어 (한국) - calvinkleinkorea.netlify.app.png',
-//     './img/FireShot Capture 002 - Wavve(웨이브) - yunaweb.pe.kr.png'
-// ];
-
-// img_change.forEach((target, index) => {
-//     const originalSrc = target.src;  // 원래 이미지의 src를 저장해 놓기
-//     target.style.transition = 'opacity 0.4s ease, visibility 0s ease 0.4s';  // opacity와 visibility에 트랜지션 추가
-
-//     target.addEventListener('mouseover', () => {
-//         target.style.opacity = 0;  // 마우스 오버 시 이미지 사라짐
-//         target.style.visibility = 'hidden';  // 요소가 공간을 차지하지 않도록 설정
-//         setTimeout(() => {
-//             target.src = change_img[index];  // 0.5초 후 이미지 변경
-//             target.style.opacity = 1;  // 이미지 다시 보이도록 설정
-//             target.style.visibility = 'visible';  // 요소 공간 차지하게 설정
-//         }, 400);  // 트랜지션 시간과 동일한 딜레이
-//     });
-
-//     target.addEventListener('mouseout', () => {
-//         target.style.opacity = 0;  // 마우스 아웃 시 이미지 사라짐
-//         target.style.visibility = 'hidden';  // 요소가 공간을 차지하지 않도록 설정
-//         setTimeout(() => {
-//             target.src = originalSrc;  // 0.5초 후 원래 이미지로 복원
-//             target.style.opacity = 1;  // 이미지 다시 보이도록 설정
-//             target.style.visibility = 'visible';  // 요소 공간 차지하게 설정
-//         }, 400);  // 트랜지션 시간과 동일한 딜레이
-//     });
-// });
-
+    // 각 링크에 클릭 이벤트 추가 (새 창에서 열기)
+    links.forEach((link, index) => {
+        link.addEventListener("click", function (event) {
+            event.preventDefault(); // 기본 링크 기능 방지
+            window.open(urls[index], "_blank"); // 새 창에서 열기
+        });
+    });
+});
 
 
 
@@ -165,4 +152,28 @@ document.addEventListener("DOMContentLoaded", function () {
 
 var swiper = new Swiper(".swiper-container", {
     effect: "cards",
-    grabCursor: true,  });
+grabCursor: true,  });
+
+document.addEventListener("DOMContentLoaded", function () {
+    // 네비게이션의 모든 링크 선택
+    document.querySelectorAll('.menu_item').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            // info 버튼은 예외적으로 최상단으로 이동
+            if (this.getAttribute('id') === 'scrollTop') {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                return;
+            }
+
+            // 기본 이벤트 제거
+            e.preventDefault();
+
+            // href 속성 값 가져오기
+            const targetId = this.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+
+            if (targetElement) {
+                targetElement.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
+});
