@@ -1,39 +1,38 @@
-    
-const menu = document.querySelector(".menu");
-menu.addEventListener('click',()=>{
-    menu.classList.toggle("active");
-})
 
-// const menu = document.querySelector(".menu");
-const nav_bar = document.querySelector(".nav_bar");
-const menu_nav = document.querySelector(".menu_nav");
-const logo = document.querySelector(".logo");
-const header_1 = document.querySelector("header");
+const parent = document.querySelector('.all_wrap');
 
-let nav_result = false; // 메뉴가 처음엔 닫힌 상태
+// 30개의 원을 랜덤으로 화면에 배치
+for (let i = 0; i < 30; i++) {
+    const newDIV = document.createElement("div");
+    newDIV.classList.add('circle2');
 
-nav_bar.addEventListener("click", () => {
-    nav_result = !nav_result; // 상태 반전
-    console.log(nav_result);
+    // 원의 크기 랜덤 설정 (5px ~ 50px)
+    const size = Math.random() * 45 + 5;
+    newDIV.style.width = `${size}px`;
+    newDIV.style.height = `${size}px`;
 
-    if (nav_result) {
-        // 메뉴 나타남
-        menu_nav.style.opacity = "1";
-        menu_nav.style.zIndex = "800";
-        menu_nav.style.transition = "opacity .5s ease-in-out";
-        logo.style.opacity = "0";
-        header_1.style.backgroundColor = "transparent";
-    } else {
-        // 메뉴 사라짐
-        menu_nav.style.opacity = "0";
-        setTimeout(() => {
-            menu_nav.style.zIndex = "-1"; // 애니메이션 끝난 후 z-index 낮추기
-        }, 500  );
-        logo.style.opacity = "1";
-        header_1.style.backgroundColor = "";
-    }
-});
-// 스크롤 효과
+    // 원의 시작 위치와 끝 위치 랜덤 설정
+    const startX = Math.random() * (window.innerWidth - size);  // 화면에서 벗어나지 않게 조정
+    const startY = Math.random() * (window.innerHeight - size); // 화면에서 벗어나지 않게 조정
+    const endX = Math.random() * window.innerWidth;
+    const endY = Math.random() * window.innerHeight;
+
+    // CSS 변수로 시작 위치, 끝 위치 설정
+    newDIV.style.setProperty('--start-x', `${startX}px`);
+    newDIV.style.setProperty('--start-y', `${startY}px`);
+    newDIV.style.setProperty('--end-x', `${endX}px`);
+    newDIV.style.setProperty('--end-y', `${endY}px`);
+
+    // 애니메이션 지속 시간 랜덤 설정 (10s ~ 30s)
+    const duration = Math.random() * 20 + 10;
+    newDIV.style.animationDuration = `${duration}s`;
+
+    // 애니메이션 반복 없이 한 번만 계속 이동하도록 수정
+    newDIV.style.animationIterationCount = 'infinite';
+
+    // 원을 부모 요소에 추가
+    parent.appendChild(newDIV);
+}
 
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -58,84 +57,10 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 4800); // 로딩 후 4.8초 뒤 실행
 });
 
-// 스크롤 이벤트 추가
-window.addEventListener("scroll", function () {
-    let indexFirst = document.querySelector(".index_first");
-    let projectCalvin = document.querySelector(".project_calvin");
-    let korean2 = document.querySelector(".korean");
-    const logoImg = document.querySelector('.logo');
-    let scrollPosition = window.scrollY; // 현재 스크롤 위치
-    let triggerPoint = window.innerHeight * 0.5; // 화면 높이의 50%
-
-    let calvinOffset = projectCalvin.offsetTop; // project_calvin의 Y 위치
-    let calvinHeight = projectCalvin.offsetHeight; // project_calvin의 높이
-    let korean2Offset = korean2.offsetTop; // project_calvin의 Y 위치
-    let korean2Height = korean2.offsetHeight; // project_calvin의 높이
-    let windowHeight = window.innerHeight; // 화면 높이
-
-    // 기본 로고 변경
-    if (scrollPosition > triggerPoint) { 
-        indexFirst.classList.add("dark");
-        logoImg.src = './img/logo_white.png';
-    } else {
-        indexFirst.classList.remove("dark");
-        logoImg.src = './img/logo_balck.png';
-    }
-
-    // project_calvin이 화면에 100% 꽉 차게 보일 때 로고 변경
-    if (scrollPosition >= calvinOffset - 1 && scrollPosition + windowHeight <= calvinOffset + calvinHeight + 1) {
-        logoImg.src = './img/logo_balck.png'; // 원하는 로고 이미지
-    }
-    // project_calvin이 화면에 100% 꽉 차게 보일 때 로고 변경
-    if (scrollPosition >= korean2Offset - 1 && scrollPosition + windowHeight <= korean2Offset + korean2Height + 1) {
-        logoImg.src = './img/logo_white.png'; // 원하는 로고 이미지
-    }
-});
-
-
 // const second_text =document.querySelectorAll('.second_text')
 // const second_em =document.querySelectorAll('.second_text em')
 // 글자 하나씩 나오게 하는거
-const second_text = document.querySelectorAll('.second_text');
-const second_em = document.querySelectorAll('.second_text em');
 
-second_text.forEach((text, index) => {
-    let isAnimated = false; // 애니메이션이 한 번만 실행되도록 설정
-
-    text.addEventListener("mouseover", () => {
-        if (isAnimated) return; // 이미 실행되었으면 다시 실행하지 않음
-        isAnimated = true;
-
-        let letters = second_em[index].innerText.split(""); // 글자를 한 글자씩 나누기
-        second_em[index].innerHTML = ""; // 기존 글자 지우기
-
-        letters.forEach((letter, i) => {
-            setTimeout(() => {
-                second_em[index].innerHTML += letter; // 한 글자씩 추가
-            }, i * 100); // 100ms 간격으로 나타나게 설정
-        });
-
-        second_em[index].style.opacity = "1"; // 투명도를 1로 설정
-    });
-});
-
-// 사진
-const photo_click = document.querySelector(".photo h2")
-const photo_img = document.querySelector(".photo img")
-console.log(photo_click)
-
-photo_click.addEventListener('click',()=>{
-    photo_img.style.opacity = '1'
-    photo_img.style.transition= '1s'
-    photo_click.style.opacity = '0'
-    photo_click.style.transition= '1s'
-})
-photo_img.addEventListener('mouseout',()=>{
-    photo_img.style.opacity = '0'
-    photo_img.style.transition= '1s'
-    photo_click.style.opacity = '1'
-    photo_click.style.transition= '1s'
-})
 // 일단 기달
 const all_A = document.querySelectorAll('body a')
 for(let i of all_A){
@@ -145,134 +70,99 @@ for(let i of all_A){
 }
 
 
-const circle = document.querySelector('.circle')
-window.addEventListener('mousemove',(e)=>{
-    console.log(`clienX=${e.clientX}`)
-    circle.style.left = `${e.clientX}px`
-    circle.style.top = `${e.clientY}px`
-}) 
+const circle = document.querySelector('.circle');
+let mouseX = 0, mouseY = 0;
+let circleX = 0, circleY = 0;
 
-const menu2 = document.querySelector(".menu");
-menu2.addEventListener('click',()=>{
-    menu2.classList.toggle("active");
-})
+window.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+});
 
+function animate() {
+    circleX += (mouseX - circleX) * 0.2; 
+    circleY += (mouseY - circleY) * 0.2;
 
-// 
-
-const wavve_preview = document.querySelector ('.wavve_preview')
-const wavve_img = document.querySelector('.wavve_site img')
-wavve_preview.addEventListener('mouseover',()=>{
-    wavve_img.style.opacity = '0';
-    setTimeout(() => {
-        wavve_img.src = './img/FireShot Capture 002 - Wavve(웨이브) - yunaweb.pe.kr.png'
-        setTimeout(() => {
-            wavve_img.style.opacity = '1';
-        }, 100);
-    }, 1000);
-})
-wavve_preview.addEventListener('mouseout',()=>{
-    wavve_img.style.opacity = '0';
-    setTimeout(() => {
-        wavve_img.src = './img/1577623_20220928113354_117_0001.jpg   '
-        setTimeout(() => {
-            wavve_img.style.opacity = '1';
-        }, 100);
-    }, 1000);
-})
-const calvin_preview =document.querySelector('.calvin_preview')
-const calvin_img =document.querySelector('.calvin_site img')
-
-calvin_preview.addEventListener('mouseover',()=>{
-    calvin_img.style.opacity = '0';
-    setTimeout(() => {
-        calvin_img.src = "./img/FireShot Capture 001 - 캘빈클라인 공식 온라인 스토어 (한국) - calvinkleinkorea.netlify.app.png"
-        setTimeout(() => {
-            calvin_img.style.opacity = '1';
-        }, 100);
-    }, 1000);
-})
-calvin_preview.addEventListener('mouseout',()=>{
-    calvin_img.style.opacity = '0';
-    setTimeout(() => {
-        calvin_img.src = "./img/jTqLdF.jpg"
-        setTimeout(() => {
-            calvin_img.style.opacity = '1';
-        }, 100);
-    }, 1000);
-})
-
-
-
-// 링크연결
-const web_link = document.querySelectorAll('.project_box')
-const git_link =document.querySelectorAll('.figma_link')
-let git_figma =['https://www.figma.com/proto/mxTjr6dFNz8v5gaUhxGVzi/Untitled?page-id=0%3A1&type=design&node-id=1-2&viewport=555%2C526%2C0.02&t=iWMGVQz4esDzeEdq-1&scaling=contain&mode=design','https://github.com/leejonghyunbeen/calvinklein']
-let web_site = ['https://yunaweb.pe.kr/wave_frontend24/#','https://calvinkleinkorea.netlify.app/','https://koreacinema.netlify.app/','https://www.figma.com/proto/awSRDNw2wSh28Qm1FjveeA/1%EC%A1%B0_%EB%B9%84%EB%A0%8C%EC%8A%A4_%EC%9A%A9%EA%B8%B0%2C%ED%98%84%EB%B9%88%2C%EC%9D%80%EC%A7%80?page-id=0%3A1&node-id=1-70&viewport=2240%2C315%2C0.08&t=hzZpPaDLB5AOtN3L-1&scaling=contain']
-
-web_link.forEach((target,index)=>{
-    target.addEventListener('click',()=>{
-        window.open(web_site[index],'_blank')
-    })
-})
-
-
-git_link.forEach((target,index)=>{
-    target.addEventListener('click',(e)=>{
-        e.preventDefault()
-        window.open(git_figma[index],'_blank')
-    })
-})
-
-
-
-
-// 
-const project_wrap = document.querySelectorAll('.project_wavve')
-const project_calvin =document.querySelectorAll('.project_calvin')
-const korean = document.querySelectorAll('.korean')
-const app = document.querySelectorAll('.app')
-for(let i of project_wrap){
-    i.addEventListener('mouseover',()=>{
-        circle.innerHTML = 'view site'
-        circle.classList.add('project_active')
-    })
-    i.addEventListener('mouseout',()=>{
-        circle.innerHTML = ''
-        circle.classList.remove('project_active')
-        circle.style.transition = '0.2s'
-    })
+    circle.style.transform = `translate(${circleX}px, ${circleY}px)`;
+    
+    requestAnimationFrame(animate);
 }
-for(let i of project_calvin){
-    i.addEventListener('mouseover',()=>{
-        circle.innerHTML = 'view site'
-        circle.classList.add('calvin_active')
-    })
-    i.addEventListener('mouseout',()=>{
-        circle.innerHTML = ''
-        circle.classList.remove('calvin_active')
-        circle.style.transition = '0.2s'
-    })
-}
-for(let i of app){
-    i.addEventListener('mouseover',()=>{
-        circle.innerHTML = 'view site'
-        circle.classList.add('project_active')
-    })
-    i.addEventListener('mouseout',()=>{
-        circle.innerHTML = ''
-        circle.classList.remove('project_active')
-        circle.style.transition = '0.2s'
-    })
-}
-for(let i of korean){
-    i.addEventListener('mouseover',()=>{
-        circle.innerHTML = 'view site'
-        circle.classList.add('project_active')
-    })
-    i.addEventListener('mouseout',()=>{
-        circle.innerHTML = ''
-        circle.classList.remove('project_active')
-        circle.style.transition = '0.2s'
-    })  
-}
+
+animate();
+
+document.addEventListener("DOMContentLoaded", function () {
+    const nowTimeElement = document.querySelector(".now_time");
+    const currentYear = new Date().getFullYear(); // 현재 연도 가져오기
+    nowTimeElement.textContent = `©${currentYear}`;
+});
+
+// 스크롤 
+// let scrollY = window.scrollY; // 현재 스크롤 위치
+// let isScrolling = false;
+
+// window.addEventListener("wheel", (event) => {
+//   event.preventDefault(); // 기본 스크롤 동작 방지
+
+//   let delta = event.deltaY * 0.8; // 스크롤 감도 조절
+//   scrollY += delta;
+
+//   if (!isScrolling) {
+//     isScrolling = true;
+//     smoothScroll();
+//   }
+// }, { passive: false });
+
+// function smoothScroll() {
+//   let currentY = window.scrollY;
+//   let distance = scrollY - currentY;
+  
+//   if (Math.abs(distance) > 1) {
+//     window.scrollTo(0, currentY + distance * 0.1); // 0.1은 감속 비율
+//     requestAnimationFrame(smoothScroll);
+//   } else {
+//     isScrolling = false;
+//   }
+// }
+
+// 프로잭트
+
+
+// const img_change = document.querySelectorAll('.project_left2 img');
+// const change_img = [
+//     './img/FireShot Capture 001 - 캘빈클라인 공식 온라인 스토어 (한국) - calvinkleinkorea.netlify.app.png',
+//     './img/FireShot Capture 002 - Wavve(웨이브) - yunaweb.pe.kr.png'
+// ];
+
+// img_change.forEach((target, index) => {
+//     const originalSrc = target.src;  // 원래 이미지의 src를 저장해 놓기
+//     target.style.transition = 'opacity 0.4s ease, visibility 0s ease 0.4s';  // opacity와 visibility에 트랜지션 추가
+
+//     target.addEventListener('mouseover', () => {
+//         target.style.opacity = 0;  // 마우스 오버 시 이미지 사라짐
+//         target.style.visibility = 'hidden';  // 요소가 공간을 차지하지 않도록 설정
+//         setTimeout(() => {
+//             target.src = change_img[index];  // 0.5초 후 이미지 변경
+//             target.style.opacity = 1;  // 이미지 다시 보이도록 설정
+//             target.style.visibility = 'visible';  // 요소 공간 차지하게 설정
+//         }, 400);  // 트랜지션 시간과 동일한 딜레이
+//     });
+
+//     target.addEventListener('mouseout', () => {
+//         target.style.opacity = 0;  // 마우스 아웃 시 이미지 사라짐
+//         target.style.visibility = 'hidden';  // 요소가 공간을 차지하지 않도록 설정
+//         setTimeout(() => {
+//             target.src = originalSrc;  // 0.5초 후 원래 이미지로 복원
+//             target.style.opacity = 1;  // 이미지 다시 보이도록 설정
+//             target.style.visibility = 'visible';  // 요소 공간 차지하게 설정
+//         }, 400);  // 트랜지션 시간과 동일한 딜레이
+//     });
+// });
+
+
+
+
+
+
+var swiper = new Swiper(".swiper-container", {
+    effect: "cards",
+    grabCursor: true,  });

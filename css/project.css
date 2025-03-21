@@ -1,119 +1,108 @@
-
-/* project */
-main .project {
-    background: #000;
+.project {
+    width: 100%;
+    background-color:#000;
+    /* height: 100vh; */
 }
-
-main .project .project_wrap {   
-}
-
-main .project .project_wrap .project_box {
-    padding-top: 150px; padding-left: 100px; padding-bottom: 100px;
-    padding-right: 100px;
-    cursor: pointer;
-    transition: 1s;
-    width: 100%; height: 100vh;
-    position: sticky; left: 0; top: 0;
-}
-
-main .project .project_wrap .project_box h2 img{
-    width: 30%
-}
-
-main .project .project_wrap .project_box .project_all {
-display: flex; align-items: center;
-justify-content: center;
-}
-main .project .project_wrap .project_box .project_text {
-    color: #fff; line-height: 70px; font-weight: 600; font-size: 1.25rem;
-}
-main .project .project_wrap .project_box .project_text span{
-    color: #fff;font-weight: 600; padding-left: 30px;
-    font-size: 1.1rem;
-}
-.project_left {
-    transform: translateX(20%);
-}
-main .project .project_wrap .project_box h2{
-    margin-bottom: 10%;
-}
-main .project .project_wrap .project_box .project_skill {
-    margin-top: 20px;
-}
-main .project .project_wrap .project_box .project_skill span {
-    color: #737272;
-} 
-main .project .project_wrap .project_box .project_figma {
-    margin-top: 30px;
-}
-main .project .project_wrap .project_box .project_figma a {
-    border: 1px solid #fff;
-    border-bottom: 3px solid #fff;
-    border-right: 3px solid #fff;
-    padding: 3px;
-    font-weight: 700;
+.project_top {
+    display: flex;
+    font-family: "Antic Slab";
+    align-items: center;
+    justify-content: center;
     color: #fff;
-    margin-right: 20px;
-    transition: 0.5s;
-}
-main .project .project_wrap .project_box .project_figma a:hover{
-    color: #000;
-    background: #fff;
-    border: 1px solid #a5a5a5;
-    border-bottom: 3px solid #a5a5a5;
-    transition: 0.5s;
-    font-size: 1.1rem;
-    font-weight: 700;
-    transform: scale(1.2);
+    font-size: 2rem;
+    padding: 40px 0;
+    margin-bottom: 80px;
 }
 
-main .project .project_wrap .project_box .project_right {
-    width:40% ;
+.project_left{ 
+    width: 55%;
+    /* height: 80vh; */
+    
+}
+.project_left img {
+    border-radius: 10px;
+    width: 100%;
+}
+.project_section ul {
+    padding: 50px 110px;
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 240px;
+}
+.project_section ul li  {
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+    align-items: center;    
+    justify-content: space-around;
+}
+.project_right img {
+    width: 300px;
+}
+.project_right h4 {
+    font-size: 1.6rem;
+    padding: 10px 0 ;
+    color: #fff;
+    font-family: "Paperlogy-6SemiBold";
+}
+.project_right {
+    display: flex;
+    flex-flow:  column;
+    gap: 20px;
+}
+.project_right p {
+    font-size: 1.4rem;
+    color: #fff;
+    line-height: 1.6;
+}
+.project_right span{
+    color: #fff;
+    line-height: 1.6;
+    font-size: 1.4rem;
+    letter-spacing: -1px;
+}
+.project_right a{
+    color: #fff;
+    font-family: "Antic Slab";
+    font-size: 1.4rem;
+    transition: .5s;
+    /* width: max-content; */
+}
+.project_li .project_left {
+    width: 35%;
+}
+.project_right a:hover{
+    color: #dc4900;
+}
+.text_3 {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    opacity: 0;
+    transition: .5s;
 }
 
-main .project .project_wrap .project_box .project_right .project_site{
-    padding-right: 100px;
-}
-main .project .project_wrap .project_box .project_right .project_site img{
-    width: 70%; transform: translateX(40%);
-    transition: opacity 1s ease-in-out;
+.text_3 span {
+    color: #fff;
 }
 
-.project_wavve {z-index: 499;}
-
-.project_calvin {
-    z-index: 500;
-    background: #ffff;
+.project_left:hover .text_3{
+    opacity: 1;
 }
 
-.project_calvin div,.project_calvin a ,.project_calvin span {
-    color: #000 !important; 
+.swiper-wrapper {
+    cursor: pointer !important;
 }
 
-.project_calvin a{
-    color: #000;
+.change_link2{
+    background-color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    border-radius: 10px;
+    padding: 5px;
 }
-.calvin_figma a {
-    border: 1px solid #000 !important;
-}
-.calvin_figma a:hover{
-    background: #000 !important;
-    color: #fff !important;
-}
-
-.korean {
-    background: #000 ; 
-    z-index: 501;
-}
-.korean_left {
-    margin-right: 130px;
-}
-
-
-.app {
-    background: #203429;
-    z-index: 502;
-}
-.app_all {
-    margin-top: 100px;
+.change_link2:hover{
+    background-color: #fff;
 }

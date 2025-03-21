@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
         firstText.style.opacity = "1";
     }, 900);
 
-    // 첫 번째 텍스트 사라짐
+    // 첫 번째 텍스트 사라짐ㅋ
     setTimeout(() => {
         firstText.style.opacity = "0";
     }, 1800);
