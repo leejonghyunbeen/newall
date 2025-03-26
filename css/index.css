@@ -531,7 +531,7 @@ color: #fff;
 
 @media screen and (max-width: 400px){
     .info_page h3 {
-       letter-spacing: 6px;
+       letter-spacing: 4px;
        font-size: 1.1rem;
     }
     .info_p {
@@ -571,5 +571,14 @@ color: #fff;
     }
     .conack_right{
         gap: 20px;
+    }
+    .project_right p {
+        font-size: 1.1rem !important; 
+    }
+    .project_right img {
+        width: 130px;
+    }
+    .project_section ul{
+        gap: 70px !important;
     }
 }
