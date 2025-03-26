@@ -133,7 +133,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const urls = [
         "https://www.figma.com/proto/awSRDNw2wSh28Qm1FjveeA/1%EC%A1%B0_%EB%B9%84%EB%A0%8C%EC%8A%A4_%EC%9A%A9%EA%B8%B0%2C%ED%98%84%EB%B9%88%2C%EC%9D%80%EC%A7%80?page-id=0%3A1&node-id=1-70&viewport=2240%2C315%2C0.08&t=hzZpPaDLB5AOtN3L-1&scaling=contain",
         "https://calvinkleinkorea.netlify.app/",
-        "https://your-third-project-link.com",
+        "https://sensational-cassata-8d815c.netlify.app/#",
         "https://koreacinema.netlify.app/#"
     ];
 

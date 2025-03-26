@@ -265,7 +265,7 @@ color: #fff;
 }
 
 
-.circle{
+/* .circle{
   z-index: 99999;
   width: 20px; height: 20px;
   border: 2px solid #fff;
@@ -281,7 +281,7 @@ color: #fff;
   justify-content: center;
   align-items: center;
   background-color: #fff;
-}  
+}   */
 
 
 /* test */
@@ -441,4 +441,13 @@ color: #fff;
 .conack_right a:hover{
     color: #dc4900;
     transition: .5s;
+}
+
+
+
+
+/* 반응형 */
+
+@media screen and (max-width: 1200px){
+
 }
