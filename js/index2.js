@@ -62,12 +62,12 @@ document.addEventListener("DOMContentLoaded", function () {
 // 글자 하나씩 나오게 하는거
 
 // 일단 기달
-const all_A = document.querySelectorAll('body a')
-for(let i of all_A){
-    i.addEventListener('click',(e)=>{
-        e.preventDefault()
-    })
-}
+// const all_A = document.querySelectorAll('body a')
+// for(let i of all_A){
+//     i.addEventListener('click',(e)=>{
+//         e.preventDefault()
+//     })
+// }
 
 
 const circle = document.querySelector('.circle');

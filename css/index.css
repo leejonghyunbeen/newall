@@ -211,6 +211,7 @@ font-family: 'Moon Dance';
     width: 100%;
     /* height: 100vh; */
     /* background-color: #000; */
+    padding-top: 100px !important;
 }
 .main_wrap{
     /* padding-top: 100px; */
@@ -384,7 +385,7 @@ color: #fff;
     display: flex;
     align-items: center;
     /* justify-content: center; */
-    padding: 80px 0;
+    padding: 0 0 80px;
     color: #fff;
     font-size: 1.6rem;
 }
@@ -458,6 +459,9 @@ color: #fff;
 /* 반응형 */
 
 @media screen and (max-width: 1200px){
+    .project_li .project_left {
+        width: 30% !important;
+    }
     .contack_text h4{
         font-size: 2.8rem;
     }
@@ -592,6 +596,15 @@ color: #fff;
     .project_top{
         margin-bottom: 50px !important;
         font-size: 2.5rem;
+    }
+    .index_first h2:nth-of-type(1){
+        top: 250px;
+    }
+    .info_ani {
+        gap: 124px;
+    }
+    .info_page {
+        height: 85vh;
     }
 }
 
