@@ -528,3 +528,48 @@ color: #fff;
     width: 200px !important;
 }
 }
+
+@media screen and (max-width: 400px){
+    .info_page h3 {
+       letter-spacing: 6px;
+       font-size: 1.1rem;
+    }
+    .info_p {
+        font-size: .9rem;
+    }
+    .project_right p {
+        font-size: 1.2rem;
+    }
+    .project_section ul {
+        padding: 50px 20px;
+    }
+    .project_right span {
+        font-size: 1.2rem;
+    }
+    .contack{
+        padding-top: 0;
+    }
+    .contack_bottom{
+        flex-flow: column-reverse;
+        gap: 50px;
+    }
+    .conack_right a {
+        font-size: 1.2rem;
+    }
+    .contack_text p{
+        font-size: 1.6rem;
+        padding-bottom: 0;
+    }
+    .contack_text2{
+        padding-top: 0;
+    }
+    .contack_text h3{
+        padding: 50px 0;
+    }
+    .contack_text h4 {
+        font-size: 1.1rem;
+    }
+    .conack_right{
+        gap: 20px;
+    }
+}
