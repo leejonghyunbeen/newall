@@ -618,4 +618,7 @@ color: #fff;
     .menu{
         display: none;
     }
+    .info_page h3 {
+        font-size: 1.2rem;
+    }
 }
