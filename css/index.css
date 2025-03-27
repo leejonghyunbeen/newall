@@ -533,7 +533,7 @@ color: #fff;
 }
 }
 
-@media screen and (max-width: 400px){
+@media screen and (max-width: 470px){
     .info_page h3 {
        letter-spacing: 4px;
        font-size: 1.1rem;
